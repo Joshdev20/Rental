@@ -11,6 +11,19 @@
 .vfm__overlay { cursor: pointer; }
 .vfm__content { position: relative; z-index: 1; }
 
+/* The listing carousels place their prev/next arrows 60px outside the content
+   column (left/right:-60px). Once the viewport is too narrow to fit that
+   offset, the arrows push the page into horizontal scroll. Below that point,
+   fall back to the overlay-nav placement the live site uses on small screens
+   (arrows tucked just inside the edges). */
+@media (max-width: 819px) {
+  .listings-carousel .listings-carousel-pager--prev { left: -5px; }
+  .listings-carousel .listings-carousel-pager--next { right: -5px; }
+}
+
+/* Safety net: never allow a stray element to introduce horizontal scrolling. */
+html, body { overflow-x: clip; }
+
 /* Envelope/phone icons inside the modal are SVG, so the text button needs the
    icon and label aligned like the live Font Awesome stack. */
 .modal-listing-contact .btn-cta__icon { margin-right: .6rem; }
