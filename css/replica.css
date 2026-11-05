@@ -1,0 +1,19 @@
+/* Modal shell — the captured bundles only ship the modal's own component styles,
+   so the vue-final-modal container/overlay chrome (loaded from its vendor
+   stylesheet on the live site) is reproduced here to match the contact modal. */
+#contact-modal[hidden] { display: none; }
+.vfm__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+}
+.vfm__overlay { cursor: pointer; }
+.vfm__content { position: relative; z-index: 1; }
+
+/* Envelope/phone icons inside the modal are SVG, so the text button needs the
+   icon and label aligned like the live Font Awesome stack. */
+.modal-listing-contact .btn-cta__icon { margin-right: .6rem; }
+.modal-listing-contact .modal__close { cursor: pointer; }
+.modal-listing-contact .listing-lead-phone a { text-decoration: none; }
+.modal-listing-contact .listing-lead-phone a .svg-inline--fa { margin-right: .5rem; }
